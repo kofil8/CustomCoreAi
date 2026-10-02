@@ -1,0 +1,309 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens: High-Hook Engineering Architecture ──── */
+
+:root {
+  /* Canvas Backgrounds with obsidian depth */
+  --bg-base:     #08090D;
+  --bg-subtle:   #0C0E14;
+  --bg-surface:  #10131B;
+  --bg-raised:   #151924;
+  --bg-inset:    #06070A;
+
+  /* Borders: disciplined and whisper-quiet */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.24);
+
+  /* Signature Hook Color (Vibrant Acid Lime from User Reference) */
+  --hook-color:        #B4F33C;
+  --hook-color-hover:  #C5FF4D;
+  --hook-dim:          rgba(180, 243, 60, 0.12);
+  --hook-glow:         rgba(180, 243, 60, 0.28);
+  --hook-border:       rgba(180, 243, 60, 0.35);
+
+  /* Primary Brand Accent */
+  --btn-primary-bg:    #B4F33C;
+  --btn-primary-text:  #08090D;
+  --btn-primary-hover: #C5FF4D;
+
+  /* Secondary Accents: Warm Titanium Bronze & Precision Steel */
+  --accent-titanium: #E2E8F0;
+  --accent-warm:     #E0A868;
+  --accent-steel:    #60A5FA;
+  --accent-muted:    rgba(224, 168, 104, 0.12);
+
+  /* High-Contrast WCAG-Compliant Typography */
+  --text-1: #FFFFFF;       /* Primary Headings & Bold Statements */
+  --text-2: #CBD5E1;       /* Body Copy & Detailed Descriptions */
+  --text-3: #94A3B8;       /* Meta labels, captions, dates - ALWAYS READABLE */
+  --text-eyebrow: #E2E8F0; /* Section Eyebrows */
+
+  /* Depth */
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-elevated: 0 12px 40px rgba(0, 0, 0, 0.6);
+  --shadow-hook: 0 4px 20px rgba(180, 243, 60, 0.25);
+}
+
+/* ─── Base Styles ────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-1);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow-x: hidden;
+  letter-spacing: -0.014em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code, pre, .font-mono {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: rgba(180, 243, 60, 0.28);
+  color: #FFFFFF;
+}
+
+/* ─── Hook Color Utilities ───────────────────────────────── */
+
+.text-hook {
+  color: var(--hook-color) !important;
+}
+
+.bg-hook {
+  background-color: var(--hook-color) !important;
+  color: #08090D !important;
+}
+
+.border-hook {
+  border-color: var(--hook-border) !important;
+}
+
+/* ─── Editorial Typography Scale ─────────────────────────── */
+
+.display-xl {
+  font-size: clamp(52px, 7.5vw, 84px);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  color: var(--text-1);
+}
+
+.display-lg {
+  font-size: clamp(38px, 5vw, 64px);
+  font-weight: 750;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: var(--text-1);
+}
+
+.display-md {
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--text-1);
+}
+
+.display-sm {
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--text-1);
+}
+
+.body-lg {
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.65;
+  color: var(--text-2);
+}
+
+.body-md {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-2);
+}
+
+/* High-Contrast Eyebrow with signature Hook dot */
+.eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-eyebrow);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: var(--hook-color);
+  box-shadow: 0 0 10px rgba(180, 243, 60, 0.7);
+}
+
+/* ─── High-Hook Button Hierarchy ─────────────────────────── */
+
+/* Primary: Signature High-Hook Acid Lime */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 9999px;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(180, 243, 60, 0.8);
+  cursor: pointer;
+  box-shadow: 0 2px 14px rgba(180, 243, 60, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.btn-primary:hover {
+  background: var(--btn-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(180, 243, 60, 0.4);
+}
+
+/* Secondary: Architectural Titanium Ghost Border */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-1);
+  font-weight: 550;
+  font-size: 14px;
+  border: 1px solid var(--border-medium);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  border-color: rgba(180, 243, 60, 0.4);
+  background: rgba(180, 243, 60, 0.04);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* Tertiary: Text link with hook hover */
+.btn-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-2);
+  font-size: 13px;
+  font-weight: 550;
+  transition: color 0.15s ease, transform 0.15s ease;
+  cursor: pointer;
+}
+
+.btn-text:hover {
+  color: var(--hook-color);
+  transform: translateX(2px);
+}
+
+/* ─── Architectural Layout Canvas (Unboxed Spacing) ──────── */
+
+.editorial-section {
+  padding-top: clamp(80px, 10vw, 140px);
+  padding-bottom: clamp(80px, 10vw, 140px);
+  position: relative;
+}
+
+.hairline-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12) 20%, rgba(255, 255, 255, 0.12) 80%, transparent);
+}
+
+.hairline-border-t {
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.hairline-border-b {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+/* Hook node bullet */
+.precision-node {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: var(--hook-color);
+  box-shadow: 0 0 10px rgba(180, 243, 60, 0.6);
+}
+
+/* ─── Faded Square Grid Lines (Architectural Blueprint) ────── */
+.faded-square-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 65% at 50% 35%, #000 25%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 65% at 50% 35%, #000 25%, transparent 85%);
+}
+
+.faded-square-grid-lg {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 224px 224px;
+  mask-image: radial-gradient(ellipse 80% 65% at 50% 35%, #000 25%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 65% at 50% 35%, #000 25%, transparent 85%);
+}
+
+/* Global Faded Square Grid for Whole Page */
+.global-faded-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.global-faded-grid-lg {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.065) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.065) 1px, transparent 1px);
+  background-size: 224px 224px;
+}
+
+/* ─── Entrance Animations ────────────────────────────────── */
+
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+
+/* Subtle lift on hover */
+.hover-lift {
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  border-color: rgba(180, 243, 60, 0.3);
+}
