@@ -8,11 +8,11 @@ import { StructuredData } from "@/components/structured-data";
 export const metadata: Metadata = {
   metadataBase: new URL("https://customcoreai.com"),
   title: {
-    default: "CustomCoreAI | Custom Backend Systems & AI Workflows for US Businesses",
+    default: "CustomCoreAI | Custom Backend Systems & AI Workflows",
     template: "%s | CustomCoreAI",
   },
   description:
-    "Stop forcing your business into rigid off-the-shelf software. CustomCoreAI engineers custom backend systems, AI voice receptionists, and operations hubs built around how your business actually works.",
+    "CustomCoreAI engineers custom backend systems, AI workflows, and operations hubs tailored precisely to how your business actually works.",
   keywords: [
     "custom backend systems",
     "senior backend engineer",

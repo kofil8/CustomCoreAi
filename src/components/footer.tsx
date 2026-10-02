@@ -110,6 +110,7 @@ export function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-[12px] text-slate-400">
           <span>© 2026 CustomCoreAI. Proprietary systems for US businesses.</span>
           <div className="flex items-center gap-6">
+            <a href="https://github.com/kofil8/CustomCoreAi" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
             <span>Direct Engineering</span>
             <span>Zero Vendor Lock-in</span>
             <span className="text-white font-medium">Austin, TX</span>
